@@ -1,0 +1,82 @@
+.flex {
+    display: flex;
+}
+
+/*
+Flex-nél fontos, hogy van flex-direction, tehát a sima flex az egymás mellé rendezi el az elemeket 
+ha viszont a flex-direction az column akkor meg egymás alá mintha div lenne 
+
+4 féle direction van:
+1. row -> alapértelmezett amikor az elemek egymás mellett vannak (1, 2, 3, 4            )
+2. row-reverse -> amikor az elemek egymás mellett vannak de fordított sorrendben, olyan mintha a tükörképe lenne (        4, 3, 2, 1)
+3. column -> amikor egy sorban vannak rendezve 
+    1
+    2
+    3
+    4
+4. column-reverse -> amikor egy sorba vannak rendezve, de viszont fordítva 
+    4
+    3
+    2
+    1
+*/
+
+.flex-dir-column {
+    flex-direction: column;
+}
+
+.flex-dir-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.flex-dir-row {
+    flex-direction: row;
+}
+
+.flex-dir-row-reverse {
+    flex-direction: row-reverse;
+}
+
+/*
+flexibilis vagy nem 
+Mert alapból a flex-ek, flexibilisek, tehát ha húzzuk össze a képernyőt, akkor mennek össze
+de viszont ha wrap akkor bemennek egymás alá, és van egy olyan is, hogy wrap reverse, amikor fordított sorrendben mennek be egymás alá 
+3 fajtája 
+1. unwrap -> alapértelmezett, amikor az elemek egy sorban lesznek és mennek össze 
+2. wrap -> amikor az elemek ha már kevés a hely(szélsesség) akkor bemennek egymás alá 
+1 2 3
+4
+
+1 2
+3 4 
+
+1
+2 3 4
+
+3. wrap-reverse -> amikor az elemek bemennek egymás alá, de viszont fordított sorrendben 
+4
+1 2 3 
+
+4 3
+1 2
+
+4 3 2 
+1
+Tehát mintha felé dobna az elemek nem alá és az utolsóval kezdi!!! 
+*/
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+/*
+wrap, amikor bemegy egymás alá ha nem fér ki 
+nowrap, amikor összenyomódik 
+wrap-reverse, amikor egymás fölé mennek az elemek 
+*/

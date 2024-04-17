@@ -1,0 +1,27 @@
+/*fontos, hogy ezt is be kell hívni a style.ccs-ben is!!! */
+
+input:focus, button:focus{
+    outline: 0;
+}
+
+/*
+The outline is a visual indicator that highlights the element when it is focused, 
+usually appearing as a colored border around the element. By setting outline: 0;, you remove this visual indicator.
+*/
+
+.brown-bordered-btn {
+    padding: 10px 15px;
+    border: 2px solid var(--light-brown);
+    background-color: transparent; /*fontos, ha van egy kép alatta, akkor ez kell hogy átlátszó legyen*/
+    height: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+/*
+Nem muszály megadni a width-et, mert ha beleírunk valamit, akkor a padding miatt olyan nagyságú lesz, mint amit beleírtunk 
+*/
+.brown-bordered-btn:hover {
+    background-color: var(--light-brown);
+    color: white;
+}

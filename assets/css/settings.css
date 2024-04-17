@@ -1,0 +1,164 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+}
+
+p {
+    margin: 10px 0;
+}
+
+.container-xs {
+    max-width: var(--width-xs);
+    margin: auto;
+}
+
+.container-sm {
+    max-width: var(--width-sm);
+    margin: auto;
+}
+
+.container-md {
+    max-width: var(--width-md);
+    margin: auto;
+}
+
+.container-lg {
+    max-width: var(--width-lg);
+    margin: auto;
+}
+
+.container-xl {
+    max-width: var(--width-xl);
+    margin: auto;
+}
+
+/*
+itt a padding-nél megadhatjuk azt, hogy a maximum a max-val a var(--spacing-xs) és a viewwidth (wh) között 
+mondjuk 0.5 vw az azt jelenti, hogy a látható képernyőnek a 0.5%-a lesz a margin 
+Tehát egy 1000px-es látható képernyőszélességnél 5px 
+max() pedig azt csinálja, hogy mindig a nagyobbat választja ki a kettő közül 
+vegyük az első esetet 
+padding: max(var(--spacing-xs), 0.3vw);
+amikor a 0.5 vw kisebb lesz, mint a 3px, akkor várt 3px-re és kisebb már nem lesz akármannyire is húzzuk be a képernyőt 
+
+Amíg ez a 0.3vw ez nagyobb mint a spacing-xs, tehát 3px, addig az lesz és amint már nem akkor a spacing-xs
+a vw az a látható szélesség és gyakorlatilag ha nagyobb képernyőn látjuk a dolgokat ez padding-xs nagyobb lesz, viszont hogyha 
+kisebb képernyőn, akkor meg kisebb de van egy minimális mérete és a minimális méret az ez -> var(--spacing-xs)
+
+Ennek akkor lesz jelentősége amikor responsive lesz a weboldal, nagyobb képernyőn nagyobbak lesznek a távolságok, kisebbeken pedig 
+kisebbek 
+*/
+
+.p-xs {
+    /* padding: var(--spacing-xs); */
+    padding: max(var(--spacing-xs), 0.3vw);
+}
+
+.p-sm {
+    /* padding: var(--spacing-sm); */
+    padding: max(var(--spacing-sm), 0.5vw);
+}
+
+.p-md {
+    /* padding: var(--spacing-md); */
+    padding: max(var(--spacing-md), 0.8vw);
+}
+
+.p-lg {
+    /* padding: var(--spacing-lg); */
+    padding: max(var(--spacing-lg), 1vw);
+}
+
+.p-xl {
+    /* padding: var(--spacing-xl); */
+    padding: max(var(--spacing-xl), 1.2vw);
+}
+
+/*
+Ezek arra jók, hogy egyenméretek legyenek mindenhol és ne az egyiknek 18px-es a padding-je a másiknak meg 21
+margin-ra is csinálunk valami hasonlót 
+*/
+
+.m-xs {
+    /* margin: var(--spacing-xs); */
+    margin: max(var(--spacing-xs), 0.3vw);
+}
+
+.m-sm {
+    /* margin: var(--spacing-sm); */
+    margin: max(var(--spacing-sm), 0.5vw);
+}
+
+.m-md {
+    /* margin: var(--spacing-md); */
+    margin: max(var(--spacing-md), 0.8vw);
+}
+
+.m-lg {
+    /* margin: var(--spacing-lg); */
+    margin: max(var(--spacing-lg), 1vw);
+}
+
+.m-xl {
+    /* margin: var(--spacing-xl); */
+    margin: max(var(--spacing-xl), 1.2vw);
+}
+
+.bg-light-beige {
+    background-color: var(--light-beige);
+}
+
+.bg-beige {
+    background-color: var(--beige);
+}
+
+.bg-light-brown {
+    background-color: var(--light-brown);
+}
+
+.bg-light-grey {
+    background-color: var(--light-grey);
+}
+
+.bg-dark-grey {
+    background-color: var(--dark-grey);
+}
+
+.bg-color-white {
+    background-color: white;
+}
+
+.bg-color-black {
+    background-color: black;
+}
+
+/*
+Itt vannak színeink, de nem csak háttérszínre lenne szükségünk, hanem betűszínekre is 
+*/
+
+.color-light-beige {
+    color: var(--light-beige);
+}
+
+.color-beige {
+    color: var(--beige);
+}
+
+.color-light-brown {
+    color: var(--light-brown);
+}
+
+.color-light-grey {
+    color: var(--light-grey);
+}
+
+.color-dark-grey {
+    color: var(--dark-grey);
+}
+
+.color-white {
+    color: white;
+}
+
+.color-black {
+    color: black;
+}

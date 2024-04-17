@@ -1,0 +1,5 @@
+- sötétszürke: #242434
+- bézs: #f1ebe9
+- világosbarna: #db9457
+- bézs: e2ddd9
+- világosszürke: #edeeed

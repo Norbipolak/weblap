@@ -1,0 +1,261 @@
+@import "init.css";
+@import "flex.css";
+@import "inputs.css";
+@import "grid.css";
+@import "settings.css";
+@import "variables.css";
+
+/*
+Amikor linkeljük a css-t a html-ben, akkor majd oda kell figyelni, hogy nem a style.css-t kell linkelni, 
+hanem ez benne van egy assets mappában és abban van egy css mappa és abban található a style.css!!!!
+-> 
+<link rel="stylesheet" href="assets/css/style.css">
+
+<div class="container-lg">
+    <div class="p-sm bg-dark-grey"></div>
+</div>
+
+Akkor így láthatunk egy container-lg az max 1080px széles sávot, ami kétszer annyi magas mint a p-sm, mert ugye van egy neki alul meg felül is 
+és szürke színű és ha húzzuk be a képernyőt akkor keskenyebb lesz a vonal (ha nagyobb a képernyő akkor 1080px vesz fel, ha meg kisebb, 
+akkor kitölti az egész szélességet a képernyőszélességnek, ha nagyobb, mint 1080px a képernyőszélleség, akkor meg nem veszi fel az 
+egészet, hanem csak az 1080px-t, mert az a max-ja)
+illetve alacsonyabb is lesz, mert a padding az vw-ben van meghatározva 
+*************************************************************************************************
+Itt szerkeztjük azokat a class-okat, amelyeket nem csináltunk meg előre 
+*/
+.upper-line {
+    height: 40px;
+    background-color: var(--dark-grey);
+    position: relative;
+}
+
+.upper-center-text {
+    position: absolute;
+    margin: auto;
+    height: 40px;
+    left: 0;
+    right: 0;
+    max-width: 300px; /*így már bemegy középre, ha van szélessége*/
+    text-align: center;
+    line-height: 40px;
+}
+
+/*
+Azért fontos, hogy a szűlőelem az relative legyen a gyerek, ami benne van pedig absolute, mert így el tudjuk elhelyezni őket 
+a szűlőelemben, ha ezt nem adnánk meg, akkor alapból static lenne és nem lennének érvényesek a right, left, top, bottom!!!!!!!
+Ez az upper-center-text-nek fehér a betűszíne és ezt itt nem kell megadni, mert van rá nekünk egy class és azt majd rögtön meg tudjuk adni 
+ennek az elemnek egy class-ként!! 
+
+az jó ha height-ja a gyereknek az ugyanakkora, mint a szűlőelemnek, mert akkor be tudjuk állítani a gyereknél a line-height-ot 
+ennek is ugyanakkorának kell lennie mint a magasságoknak és akkor a benne lévő szöveg az középre kerül 
+(vagy ez még úgy is meg lehet csinálni, hogy a gyerekelemnek megadunk egy margin: ..px, auto)
+auto, hogyha azt szeretnénk, hogy középre kerüljön vizszintesen is 
+
+.container {
+  position: relative;
+  width: 200px;  Example width 
+}
+
+.child {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ha a szűlőelem relative és a gyerekelem abszolút 
+akkor left: 50%-val középre lehet hozni de ez még nem lesz teljesen középen azért kell a transform: translateX(-50%)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Itt most az a probléma, hogy helyezzük ezt középre, mert ez most így 100% széles és nem tudjuk így középre helyezni 
+(elöző amit írtam left: 50% az lehet, hogy müködik, de akkor még ezt nem tudtuk)
+ha meg adunk ennek a gyerekelemnek egy szélességet, akkor meg nem biztos, hogy kifér a text, de valőszínüleg így fogjuk megoldani 
+
+position: absolute-val még az a probléma, hogyha összehúzzuk a képernyőt akkor egymásba fognak menni a text meg a linkek, amik majd jobb
+oldalon lesznek 
+***************************
+megcsináljuk az upper-right-text-et a linkeknek
+majdnem ugyanaz, csak a szélessége az kisebb lesz 
+
+leírás: 
+position: absolute;
+- hogy meg tudjunk neki adni right, left stb.
+right: 0;
+left: 0;
+margin: auto;
+- ezzel a hárommal tudjuk középre helyezni a szűlőelemben, ha van egy szélessége 
+max-width: 300px;
+- ezzel a kettővel pedig középre tudjuk helyezni a felíratot horizontálisan is vertikálisan is 
+text-align: center; horizontális 
+line-height: 40px; vertikális
+- van még egy height-ja is, de nem az a fontos, hogy itt legyen ugyanakkora height, mint a line-height, hanem a szűlőelemnek kell ugyanakkora 
+height mint a gyereknek a line-height vagyis jobb ha szűlőnél és a gyereknél is meg van adva egy ugyanakkora height és akkor biztos, hogy 
+nem lesz gond
+
+*/
+.social-media-links {
+    position: absolute;
+    right: 15px;
+    height: 40px;
+    width: 100px;
+    line-height: 40px;
+    display: flex; 
+    justify-content: space-evenly;
+}
+
+/*
+Ennek megadtunk egy 100px-es szélességet és mivel azt szeretnénk, hogy ezek a link-ek, amik ebben a social-media-links-ekben találhatóak 
+ezek legyen ugyanolyan távolságra egymástól és kitelítsék a fennállásra lévő 100px szélességet 
+erre kell, a social-media-links-nek a display: flex illetve hogy justify-content: space-evenly!!!!  
+*/
+
+.white-link {
+    color: white;
+    text-decoration: none;
+}
+
+nav {
+    height: 92px;
+    display: flex;
+    align-items: center;
+}
+
+.center-nav {
+    width: 95%; /*azért, mert ott is kicsit beljebb kezdődik, nem teljesen a szélén kezdődik az első link*/
+    margin: auto; 
+    display: flex;
+    justify-content: space-between; 
+    height: 60px;
+
+}
+
+nav ul {
+    display: flex; /*emiatt az li-k egymás mellet fognak elhelyezkedni, nem egymás alatt*/
+    justify-content: center;
+}
+
+nav li {
+    height: 60px;
+    display: flex;
+    align-items: center;
+
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    padding: 15px; /*ezzel fognak eltávolodni egymástól*/
+    text-transform: uppercase; /*fontos, hogy ezzel lehet beállítani, hogy nagybetűs legyen*/
+}
+
+/*
+nav az azért lett flex, meg align-items: center, mert így tudjuk középre helyezni vele a bennelévő dolgokat vertikálisan 
+tehát most ami benne van .center-nav az középen van a 92px height-os nav-ban, ha ez nem lenne, akkor nem lenne középen vertikálisan,
+hanem feljebb lenne!!!! 
+
+.center-nav 
+width: 95%;
+margin: auto;
+- mert ez egy div ami 100%-os szélességű, mi meg azt szeretnénk, hogy ne teljesen a jobboldal kezdje a dolgokat, amik ezekben van 
+persze ehhez kell az is hogy margin: auto legyen, tehát ne úgy legyen, hogy 95% az teljesen a jobboldalról indul, hanem úgy, hogy ez az 
+hogy legyen 2,5% hely a jobboldalon és legyen 2.5% hely a baloldalon is!!!!
+display: flex;
+justify-content: space-between
+Ezek azért kellenek, hogy a három dolog ami benne van a két ul és a div, azok bemenenek egymás mellé és ne egymás alatt legyenek 
+space-between meg az, hogy ne full egymás mellett legyenek, hanem úgy kb., hogy az ul legyen a baloldalt logo középen és a másik
+ul pedig legyen jobboldalt!!!!!! 
+
+nav ul 
+display: flex;
+az meg azért kell, hogy a 3 dolog, ami benne van ebben az ul-ben az is bemenjen egymás mellé, mert ezek alapból ugye egymás alatt vannak
+
+nav-li
+height: 60px;
+kapott egy ugyanolyan magasságot, mint a .center-nav, de ezt úgy láttam, hogy nem befolyásol semmit 
+display: flex;
+align-items: center;
+ez azért van, hogy vertikálisan középen legyenek ezek a dolgok és ilyenkor nincs is ott a pont, amit kapnak amugy az li-k és nem 
+kell leszedni őket, ez a leszedést az ul-nak kell megadni nem li-nek!!!!!!! 
+és list-style-type: none; nem text-decoration: none; azt az aláhúzásokra kell használni!!!!!! 
+de az a lényeg, hogyha itt meg van adva az li-nek egy magasság, akkor nem kell flex hanem, csak line-height, ugyanakkora mint a height 
+és akkor vertikálisan középre teszi, csak akkor ott megmaradnak valamiért a pontok!!!!!
+ul {
+  list-style-type: none;
+}
+
+nav a 
+padding: 15px;
+ez fontos, mert így a padding miatt fognak eltávolodni ezek a linkek egymástól, amugy teljesen egymás mellett lennének 
+text-decoration: none 
+aláhúzás eltüntetése 
+color: black 
+mivel ez link (a), ezért alapból aláhúzott és van a betűk kékek, ezért kell a text-decoration meg a color!!!!
+text-transform: uppercase; !!!!!!!
+fontos, mert a az oldalon amit néztünk nagybetűvel van 
+*/
+
+.menu-logo {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+
+/*
+Adtunk neki egy magasságot meg hogy kőzépen legyen majd vertikálisan és horizontálisan is 
+ahhoz kell a flex a justify-content: center illetve az align-items: center is!!!! 
+ha meg túl nagy a kép, akkor adunk neki egy kevesebb width-et
+*/
+
+.menu-logo img {
+    width: 100px;
+}
+
+/*
+Így már bele tudjuk ralni a menu-logo-ba a képet, megadjuk az src-jének, ugye nem úgy amikor csak simán van egy háttérkép 
+és itt megadjuk a background-image: url("")-vel!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
+header {
+    /* background-image: url(".../images/coffe.jpg"); 
+    azért van ez így mert nem töltöttem le képet hozzá 
+    */
+    /*height: 700px; ahhoz, hogy látszodjon a kép kell magasság is!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    height: 30vw;
+    background-size: 100%; /*hogy a kép a teljes szélességét felvegye a header-nek*/
+    background-position: center; /*hogy mindig középen legyen*/
+}
+
+/*
+fontos, hogy itt meg lehet adni a height-ot vw-vel és akkor olyan magas lesz mint a szélességnek valahány százaléka 
+pl. 50vw azt jelenti, hogy ennek a header a magassága az mindig akkora lesz mint a szélességnek az 50%-a és akkor alapból meg van 
+a reszponzívítás!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*******************************************************************
+itt a header-ben van egy szövegünk és egy gombunk is!!! 
+csinálunk egy inputs.css-t ahol ezt megformázzuk 
+********************************************************************
+Ott megcsináltuk a dolgokat és itt meg megszerkesztjük azt a div-et, amiben lesz egy button és h2-es szöveg meg paragrafusban egy szöveg
+*/
+
+.header-marketing {
+    max-width: 500px; /*hogy ne menjen ki teljesen a jobb széléig, mert úgy van a weblapon is*/
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    /*
+    mert az 1fr, ahol lentről felfele van írva a szöveg
+    5fr, ott lesz majd a h2-es meg a paragrafus szöveg
+    */
+}
+
+.header-marketing h2 {
+    font-size: 40px; 
+    /*
+    mert ez nagyobb betűmérettel van, mint egy h2-es alapból
+    és mivel a header-marketing, amiben ez benne van az max 500px, ezért több sorban lesz az amit beleírtunk ebbe a h2-be
+    de ez a weblapon is így van
+    */
+}
+
+
+
+

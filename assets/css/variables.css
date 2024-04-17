@@ -1,0 +1,66 @@
+:root {
+    --light-beige: #f1ebe9;
+    --beige: #e2ddd9;
+    --light-brown: #db9457;
+    --light-grey: #edeeed;
+    --dark-grey: #242424;
+    --spacing-xs: 3px;
+    --spacing-sm: 5px;
+    --spacing-md: 10px;
+    --spacing-lg: 15px;
+    --spacing-xl: 20px;
+    --width-xs: 640px;
+    --width-sm: 720px;
+    --width-md: 960px;
+    --width-lg: 1080px;
+    --width-xl: 1280px;
+
+}
+/*
+ide a root-ba belerakjuk a színeket, amiket lementettük a weblapról 
+csinálunk spacing-eket, amiket majd fel lehet használni pl. padding-re meg másra is pl. margin-ra 
+style.css-be pedig mindent importálunk 
+
+fontos, hogy import elé kell a @ jel!!!!!! 
+és fontos még hogyha ezekre szeretnénk hívatkozni akkor így kell a var()-val
+-> 
+max-width: var(--width-xs);
+
+fontos!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Ezeket itt meghatároztuk a root-ban és majd innen tudjuk ezeket átadni egy class-nak, amit majd meg tudunk adni a html elemeknek
+pl a --light-beige: #f1ebe9;
+
+erre kell csinálni egy class-t, ahol majd csak azt kell megadni a var-val ami itt a neve tehát --light-beige
+ezt a settings-ben csináltuk 
+.bg-light-beige {
+    background-color: var(--light-beige)
+}
+és akkor itt már tudni fogja, hogy mi az értéke a --light-beige-nek
+ami itt a settings.css-ben csináltunk, mindjuk a --spacing-et fel tudjuk használni a padding-ekre 
+
+itt fontos, hogy var() legyen!!!!!!!!!!
+meg tudunk a max-val a vw-et is csinálni, mindig azt veszi, ami aktuálisan a képernyő szélességétől függően nagyobb lesz!!!!
+
+.p-xs {
+    padding: max(var(--spacing-xs), 0.3vw);
+}
+.p-sm {
+    padding: max(var(--spacing-sm), 0.5vw);
+}
+.p-md {
+    padding: max(var(--spacing-md), 0.8vw);
+}
+
+.p-lg {
+    padding: max(var(--spacing-lg), 1vw);
+}
+
+.p-xl {
+    padding: max(var(--spacing-xl), 1.2vw);
+}
+
+És akkor tudják, hogy ismerem a max-ot meg akkor ugyanígy van a min meg a flex-direction-t, flex-wrap-ot
+vw-et, grid-nél a repeat-et vagy a minmax()-ot stb.
+hogy tudok egy saját keretrendszert készíteni, amivel megkönnyítjük a saját dolgunkat 
+
+*/
