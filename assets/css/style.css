@@ -245,6 +245,8 @@ Ott megcsináltuk a dolgokat és itt meg megszerkesztjük azt a div-et, amiben l
     mert az 1fr, ahol lentről felfele van írva a szöveg
     5fr, ott lesz majd a h2-es meg a paragrafus szöveg
     */
+    grid-gap: 10px;
+    /*hogy eltávolodjon a két szöveg, ami egymás mellett van a grid-ekben*/
 }
 
 .header-marketing h2 {
@@ -255,7 +257,16 @@ Ott megcsináltuk a dolgokat és itt meg megszerkesztjük azt a div-et, amiben l
     de ez a weblapon is így van
     */
 }
+/*
+Csinálunk egy devider, ami csak egy barna nyíl a képernyő közepén 
+*/
 
+.brown-devider {
+    width: 2px;
+    height: 50px;
+    background-color: var(--light-brown);
+    margin: 15px auto;
+}
 
 
 

@@ -162,3 +162,51 @@ Itt vannak színeink, de nem csak háttérszínre lenne szükségünk, hanem bet
 .color-black {
     color: black;
 }
+
+/*
+vertical-text-et megadtuk egy div-nek, aminek majd az a szerepe, hogy a szöveget ne balról jobbra írja, hanem alúlról felfele
+*/
+.vertical-text {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    text-align: center; /*ezzel középre tesszük*/
+    transform: rotate(180deg);
+    font-weight: bold;
+}
+/*
+writing-mode azt határozza meg, hogy milyen írányban legyen a szöveg amit írunk 
+Van 3 fajtája 
+1. horizontal-tb -> alapbeállítás, balról jobbra fogja írni a szöveget 
+2. vertical-rl -> vertikálisan alulról felülre fogja írni a szöveget úgy, hogy a karakterek jobbról balra mennek 
+3. vertical-lr -> vertikálisan alulról felülre fogja írni a szöveget úgy, hogy a karakterek balról jobbra mennek 
+
+Itt a tb azt jelenti, hogy top-to-bottom!!!!
+Ugye itt nem tudtuk megoldani, hogy felülről lefele menjen a szöveg, csak azt, hogy alulról felfele, ezért kell egy 
+transform: rotate(180deg)!!!
+transform-nál általában a rotate illetve a translate-et szoktuk használni!!! 
+pl. transform: translateY(-50%);
+font-weight-vel meg tudjuk azt oldani, hogy bold legyen!!!! 
+*/
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/*
+Fontos, hogy a text-transform-val tudjuk beállítani, hogy kisbetűs vagy nagybetűs legyen a szöveg (uppercase, lowercase) 
+*/
+.center-text {
+    text-align: center!important;
+}
+
+.justify-text {
+    text-align: justify!important;
+}
+
+.left-text {
+    text-align: left!important;
+}
+
+.right-text {
+    text-align: right!important;
+}

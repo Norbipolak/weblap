@@ -409,4 +409,77 @@ text-orientation!!!!
 ->
 writing-mode: vertical-rl; -> itt lehet lr is, ha úgy szeretnénk, hogy máshogy menjen a szöveg
 text-orientation: mixed;
+
+<div class="vertical-text">
+    because we love coffee 
+</div>
+
+és akkor ennek a div-nek megadtunk egy vertical-text class-t, amit majd css-ben formázunk a settings-ben 
+.vertical-text {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    text-align: center; 
+    transform: rotate(180deg);
+    font-weight: bold;
+}
+
+writing-mode azt határozza meg, hogy milyen írányban legyen a szöveg amit írunk 
+Van 3 fajtája 
+1. horizontal-tb -> alapbeállítás, balról jobbra fogja írni a szöveget 
+2. vertical-rl -> vertikálisan alulról felülre fogja írni a szöveget úgy, hogy a karakterek jobbról balra mennek 
+3. vertical-lr -> vertikálisan alulról felülre fogja írni a szöveget úgy, hogy a karakterek balról jobbra mennek 
+
+Itt a tb azt jelenti, hogy top-to-bottom!!!!
+Ugye itt nem tudtuk megoldani, hogy felülről lefele menjen a szöveg, csak azt, hogy alulról felfele, ezért kell egy 
+transform: rotate(180deg)!!!
+transform-nál általában a rotate illetve a translate-et szoktuk használni!!! 
+pl. transform: translateY(-50%);
+vagy csak simán meg tudjuk adni px-ben, hogy mennyit menjen jobbra-balra, fel-le 
+transform: translate(20px, 50px);
+itt az x tengelyen megy 20px-t jobbra és az y-tengelyen megy 50px-t lefele!!!!!!!!
+
+font-weight-vel meg tudjuk azt oldani, hogy bold legyen!!!! 
+
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+
+Fontos, hogy a text-transform-val tudjuk beállítani, hogy kisbetűs vagy nagybetűs legyen a szöveg (uppercase, lowercase) 
+***********************************************************************************************************
+Következő, hogy csinálunk egy sima barna nyílat a képernyő közepére!!! 
+fontos, hogy legyen width és height, hogy meghatározzuk, hogy milyen magas illetve milyen széles legyen ez a nyíl 
+kell egy margin: 15px auto; 
+alul-felül a többi elemtől legyen 15px-es távolság és horizontálisan meg középre legyen helyezve és ez az egész be legyen rakva egy 
+container-be 
+<div class="container-xl">
+    <div class="brown-devider"></div>
+</div>
+
+.brown-devider {
+    height: 50px;
+    width: 2px;
+    background-color: var(--light-brown);
+    margin: 15px auto;
+}
+
+Ezzenkívűl még van két szöveg itt, amit belerakunk majd egy .center-text-es div-be, ami csak azt csinálja, hogy középre helyezi 
+ezeket a szövegeket 
+settings-be csináljuk a .center-text-et 
+.center-text {
+    text-align: center!important;
+}
+
+.justify-text {
+    text-align: justify!important;
+}
+
+.left-text {
+    text-align: left!important;
+}
+
+.right-text {
+    text-align: right!important;
+}
 */ 

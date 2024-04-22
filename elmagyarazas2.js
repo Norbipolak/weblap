@@ -96,4 +96,20 @@ would move the top edge of the .absolute-element 16 pixels above the top edge of
 If the .absolute-element is not inside a relatively positioned container, 
 it will be positioned relative to the nearest positioned ancestor, or if there is none, 
 relative to the initial containing block (usually the viewport).
+******************************************************************************************************************
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+
+   Translate the element 50px to the right and 20px down 
+
+  transform: translate(50px, 20px);
+}
+
+In this example, the .box element will be translated 50 pixels to the right along the X-axis 
+and 20 pixels down along the Y-axis from its original position. 
+You can adjust the values passed to translate to move the element in different directions.
+
+Ezt akkor csináltuk, amikor egy box-ot elvittünk jobbra, utána meg alulra és a végén visszkerült az eredeti helyére 
 */
